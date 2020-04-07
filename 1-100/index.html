@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            Задание на 5
+            Сделал более хитрым способом,
+            чтобы не вызывать повторно ввод,
+            сделал перезагрузку стрницы))
+        */
+        function random(min, max) {
+            let input = prompt("Угадай число от 1 до 100!");
+            let rand = min + Math.random() * (max - min);
+            let result = Math.floor(Math.abs(rand - input));
+            let check = parseInt(input.replace( /\D/g, '')) || 0;
+            if (input > result) {
+                alert("Загаданное число меньше");
+                location.reload(true); 
+            }
+            else if (input < result) {
+                alert("Загаданное число больше");
+                location.reload(true); 
+            }
+            else if (check == 0) {
+                alert("Введите число!");
+                location.reload(true); 
+            }
+            else if (input == result) {
+                alert("Вы угадали!");
+                location.reload(true); 
+            } else alert("Пока!");
+        } random(1, 100);
+    </script>
+</body>
+</html>
